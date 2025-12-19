@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deezer Playlist Maker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Main App Container -->
+    <div class="glass-container">
+
+        <!-- Header -->
+        <header>
+            <h1>Deezer Playlist Maker</h1>
+            <div id="connectionStatus" class="status-badge">Checking...</div>
+        </header>
+
+        <main>
+            <!-- Left Panel: Input -->
+            <div class="panel">
+                <div class="panel-title">1. Paste Description</div>
+                <textarea id="descriptionInput"
+                    placeholder="Paste YouTube description here...&#10;00:00 Artist - Title&#10;Artist - Title"></textarea>
+                <div class="control-bar">
+                    <button id="btnParse" class="secondary">1. Parse Songs</button>
+                    <button id="btnMatch">2. Find Matches</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Review & Create -->
+            <div class="panel">
+                <div class="panel-title" id="songsCount">Review Songs (0)</div>
+                <div id="songList" class="song-list-container">
+                    <div style="text-align:center; color:rgba(255,255,255,0.3); padding-top:40px;">
+                        Parsed songs and matches will appear here.
+                    </div>
+                </div>
+
+                <div class="panel-title" style="margin-top:10px;">3. Create Playlist</div>
+                <div class="control-bar">
+                    <input type="text" id="playlistName" placeholder="My Awesome Playlist">
+                    <button id="btnCreate">Create Playlist</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Auth Overlay -->
+        <div id="authOverlay" class="overlay">
+            <div class="auth-card">
+                <h2>Connection Required</h2>
+                <p>Please provide your Deezer ARL Cookie to continue.<br>We need this to verify your session.</p>
+                <input type="text" id="arlInput" placeholder="Paste your 192-char ARL cookie"
+                    style="width:100%; margin-bottom:12px;">
+                <button id="btnConnect" style="width:100%">Connect</button>
+                <div id="authError" class="error-msg">Connection failed. Check your cookie.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
